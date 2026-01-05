@@ -64,6 +64,7 @@
 h2:has(span.${CONFIG.containerClass}) {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .${CONFIG.containerClass} {
     display: inline-flex;
