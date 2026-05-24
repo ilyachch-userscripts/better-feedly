@@ -4,7 +4,7 @@ import monkey from 'vite-plugin-monkey';
 // === Configuration ===
 const SCRIPT_NAME = 'Better Feedly';
 const NAMESPACE = 'https://github.com/ilyachch';
-const MATCH_URLS = ['*://*/*'];
+const MATCH_URLS = ['https://feedly.com/*'];
 const ICON_URL = 'https://www.google.com/s2/favicons?sz=64&domain=feedly.com';
 // =====================
 
@@ -20,15 +20,15 @@ export default defineConfig({
         namespace: NAMESPACE,
         match: MATCH_URLS,
         icon: ICON_URL,
-        description: 'Tampermonkey app',
+        description: 'Feedly enhancements for Tampermonkey',
         author: 'ilyachch',
-        grant: ['GM_addStyle'],
+        grant: ['GM_getValue', 'GM_setValue', 'GM_registerMenuCommand'],
         license: 'MIT',
         homepageURL: 'https://github.com/ilyachch-userscripts/better-feedly',
         supportURL: 'https://github.com/ilyachch-userscripts/better-feedly/issues',
         updateURL: 'https://github.com/ilyachch-userscripts/better-feedly/releases/latest/download/better-feedly.user.js',
         downloadURL: 'https://github.com/ilyachch-userscripts/better-feedly/releases/latest/download/better-feedly.user.js',
-        'run-at': 'document-end',
+        'run-at': 'document-idle',
       }
     }),
   ],

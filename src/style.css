@@ -1,28 +1,133 @@
-/* Пример стилей для нашего виджета */
-#my-userscript-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #222;
-  color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
-  font-family: monospace;
-  border: 1px solid #444;
+h2:has(span.tm-feedly-actions-container) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-#my-userscript-container button {
-  background: #007bff;
+.tm-feedly-actions-container {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1rem;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.tm-feedly-actions-container:hover {
+  opacity: 1;
+}
+
+.tm-feedly-action-btn {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
   border: none;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
   cursor: pointer;
-  margin-top: 5px;
+  font-size: 0.8125rem;
+  color: inherit;
+  padding: 4px 8px;
+  margin-left: 4px;
+  border-radius: 4px;
+  transition:
+    background 0.1s,
+    color 0.1s;
+  font-family: inherit;
 }
 
-#my-userscript-container button:hover {
-  background: #0056b3;
+.tm-feedly-action-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #2bb24c;
+}
+
+.tm-feedly-action-btn svg {
+  margin-right: 4px;
+  opacity: 0.8;
+}
+
+.tm-feedly-autoscroll-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  max-width: 280px;
+  min-height: 40px;
+  border: 1px solid #d0d7de;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #1f2328;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    transform 0.1s;
+}
+
+.tm-feedly-autoscroll-btn:hover {
+  transform: translateY(-1px);
+}
+
+.tm-feedly-autoscroll-btn[data-state='running'] {
+  background: #e7f5eb;
+  border-color: #9fd8b0;
+  color: #156f35;
+}
+
+.tm-feedly-autoscroll-btn[data-state='stopping'] {
+  background: #fff4e5;
+  border-color: #f2c185;
+  color: #8a4b08;
+}
+
+.tm-feedly-autoscroll-btn[data-state='found'] {
+  background: #e8f3ff;
+  border-color: #9dc8ff;
+  color: #0d4ea6;
+}
+
+.tm-feedly-autoscroll-btn[data-state='error'] {
+  background: #fdeceb;
+  border-color: #f0b1ab;
+  color: #9f1c14;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tm-feedly-autoscroll-btn {
+    background: #1f2328;
+    color: #e6edf3;
+    border-color: #3d444d;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  .tm-feedly-autoscroll-btn[data-state='running'] {
+    background: #183425;
+    border-color: #2f6a4c;
+    color: #89d4a8;
+  }
+
+  .tm-feedly-autoscroll-btn[data-state='stopping'] {
+    background: #3b2e1c;
+    border-color: #7f5d2f;
+    color: #f1c27b;
+  }
+
+  .tm-feedly-autoscroll-btn[data-state='found'] {
+    background: #1b2f46;
+    border-color: #395d87;
+    color: #8bc2ff;
+  }
+
+  .tm-feedly-autoscroll-btn[data-state='error'] {
+    background: #402421;
+    border-color: #7a3b34;
+    color: #ff9f96;
+  }
 }
